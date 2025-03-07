@@ -38,3 +38,13 @@ install the packages with:
 start the project:
 
 > npm start
+
+## Used Libaries
+
+### Tailwindcss
+
+Libary for quick css presets inside html file. <https://tailwindcss.com/>
+
+### PrimeNG
+
+Component Libary with a lof of predefined stuff. Implement adjust, and use it.

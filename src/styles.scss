@@ -7,8 +7,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
   margin: unset;
+  background: var(--p-button-secondary-background);
 }
 
-@utility text-primary {
-  color: var(--p-primary-color);
+@theme static {
+  --color-primary: var(--p-primary-color);
+  --color-contrast: var(--p-primary-contrast-color);
 }

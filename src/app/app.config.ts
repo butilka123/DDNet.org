@@ -18,6 +18,9 @@ export const appConfig: ApplicationConfig = {
     providePrimeNG({
       theme: {
         preset: DDNetPreset,
+        options: {
+          darkModeSelector: '.darkMode',
+        },
       },
     }),
   ],

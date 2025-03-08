@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
 import { IconField } from 'primeng/iconfield';
 import { Image } from 'primeng/image';
 import { InputIcon } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { Menu } from 'primeng/menu';
-
+import { MenubarModule } from 'primeng/menubar';
 @Component({
   selector: 'app-menu',
   imports: [
@@ -18,11 +20,16 @@ import { Menu } from 'primeng/menu';
     InputTextModule,
     FormsModule,
     ButtonModule,
+    CardModule,
+    MenubarModule,
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
 })
 export class MenuComponent {
+  document = inject(DOCUMENT);
+  darkMode = this.document.documentElement.classList.contains('darkMode');
+
   menuItems: MenuItem[] = [
     {
       label: 'General',
@@ -45,4 +52,24 @@ export class MenuComponent {
       ],
     },
   ];
+
+  icons = [
+    {
+      icon: 'pi pi-github',
+    },
+    {
+      icon: 'pi pi-discord',
+    },
+    {
+      icon: 'pi pi-paypal',
+    },
+    {
+      icon: this.darkMode ? 'pi pi-moon' : 'pi pi-sun',
+      command: () => this.toggleMode(),
+    },
+  ];
+
+  toggleMode() {
+    this.document.documentElement.classList.toggle('darkMode');
+  }
 }

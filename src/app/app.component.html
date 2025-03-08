@@ -1,10 +1,16 @@
-<div class="px-[4rem] py-[1rem] h-full flex flex-row">
+<div class="p-[1.5rem] h-full flex flex-row">
   <div class="h-full w-[250px]">
     <app-menu></app-menu>
   </div>
   <div
-    class="h-full w-full ml-[2rem] flex flex-col bg-contrast rounded-sm p-[1rem]"
+    class="h-full w-full ml-[1.5rem] flex flex-col bg-contrast rounded-md px-[1.5rem] py-[1rem]"
   >
+    <p-breadcrumb
+      class="max-w-full"
+      styleClass="!p-[unset]"
+      [model]="items"
+      [home]="home"
+    />
     <router-outlet></router-outlet>
   </div>
 </div>

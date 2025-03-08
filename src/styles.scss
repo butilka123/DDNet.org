@@ -1,6 +1,14 @@
 @use "tailwindcss/theme.css";
 @use "tailwindcss/utilities.css";
+@use "primeicons/primeicons.css";
 
-html {
+html,
+body {
   font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  margin: unset;
+}
+
+@utility text-primary {
+  color: var(--p-primary-color);
 }

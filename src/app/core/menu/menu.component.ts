@@ -7,7 +7,6 @@ import { Image } from 'primeng/image';
 import { InputIcon } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 import { Menu } from 'primeng/menu';
-import { Toolbar } from 'primeng/toolbar';
 
 @Component({
   selector: 'app-menu',
@@ -18,7 +17,6 @@ import { Toolbar } from 'primeng/toolbar';
     IconField,
     InputTextModule,
     FormsModule,
-    Toolbar,
     ButtonModule,
   ],
   templateUrl: './menu.component.html',

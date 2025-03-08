@@ -1,7 +1,7 @@
 <div class="flex items-center h-full">
   <p-menu [model]="menuItems" class="h-full" styleClass="p-[1.5rem] h-full">
     <ng-template #start>
-      <div class="flex flex-col items-center gap-[1.5rem]">
+      <div class="flex flex-col items-center gap-[2rem]">
         <p-image src="logo.svg" alt="DDNet Logo" width="200" />
         <p-iconfield>
           <p-inputicon styleClass="pi pi-search" />
@@ -26,9 +26,11 @@
           variant="outlined"
         />
         <p-button severity="secondary" variant="outlined">
-          <img src="steam.svg" class="w-[16px]" />
+          <img src="steam.svg" class="w-[1rem] h-[1.2rem]" />
         </p-button>
-        <p-button icon="pi pi-book" severity="secondary" variant="outlined" />
+        <p-button severity="secondary" variant="outlined">
+          <img src="rss-feed.svg" class="w-[1rem] h-[1.2rem]" />
+        </p-button>
         <p-button icon="pi pi-moon" severity="secondary" variant="outlined" />
       </div>
     </ng-template>

@@ -1,27 +1,33 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { IconField } from 'primeng/iconfield';
-import { Image } from 'primeng/image';
-import { InputIcon } from 'primeng/inputicon';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
-import { Menu } from 'primeng/menu';
-import { MenubarModule } from 'primeng/menubar';
+import { MenuModule } from 'primeng/menu';
+import { TooltipModule } from 'primeng/tooltip';
+interface customIcon {
+  icon: string;
+  tooltip: string;
+  command?: Function;
+  link?: string;
+  routerLink?: string;
+}
+
 @Component({
   selector: 'app-menu',
   imports: [
-    Menu,
-    Image,
-    InputIcon,
-    IconField,
+    IconFieldModule,
+    InputIconModule,
+    MenuModule,
+    ButtonModule,
+    RouterModule,
     InputTextModule,
     FormsModule,
-    ButtonModule,
-    CardModule,
-    MenubarModule,
+    TooltipModule,
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
@@ -33,38 +39,48 @@ export class MenuComponent {
   menuItems: MenuItem[] = [
     {
       label: 'General',
-      items: [{ label: 'Status' }, { label: 'Ranks' }],
+      items: [
+        { label: 'Status', routerLink: '/status' },
+        { label: 'Ranks', routerLink: '/ranks' },
+      ],
     },
     {
       label: 'Ressources',
       items: [
-        { label: 'Map Releases' },
-        { label: 'Downloads' },
-        { label: 'Skin Database' },
+        { label: 'Map Releases', routerLink: '/releases' },
+        { label: 'Downloads', routerLink: '/downloads' },
+        { label: 'Skin Database', routerLink: '/skins' },
       ],
     },
     {
       label: 'Community',
       items: [
-        { label: 'Wiki' },
-        { label: 'Tournaments' },
-        { label: 'Staff & Contact' },
+        { label: 'Wiki', url: 'https://wiki.ddnet.org' },
+        { label: 'Tournaments', routerLink: '/tournaments' },
+        { label: 'Staff & Contact', routerLink: '/staff' },
       ],
     },
   ];
 
-  icons = [
+  icons: customIcon[] = [
     {
       icon: 'pi pi-github',
+      tooltip: 'Github',
+      link: 'https://github.com/ddnet/',
     },
     {
       icon: 'pi pi-discord',
+      tooltip: 'Discord',
+      link: 'https://ddnet.org/discord',
     },
     {
       icon: 'pi pi-paypal',
+      tooltip: 'Donations',
+      routerLink: '/donations',
     },
     {
       icon: this.darkMode ? 'pi pi-moon' : 'pi pi-sun',
+      tooltip: 'Switch Theme',
       command: () => this.toggleMode(),
     },
   ];
@@ -72,4 +88,6 @@ export class MenuComponent {
   toggleMode() {
     this.document.documentElement.classList.toggle('darkMode');
   }
+
+  openLink() {}
 }

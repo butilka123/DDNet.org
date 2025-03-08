@@ -1,6 +1,8 @@
 <div class="flex flex-col h-full bg-contrast rounded-sm p-[1rem]">
   <div class="flex self-center">
-    <p-image class="w-[200px]" src="ddnet2.svg" alt="DDNet Logo" />
+    <a routerLink="">
+      <img class="w-[200px]" src="ddnet2.svg" alt="DDNet Logo" />
+    </a>
   </div>
 
   <p-iconfield class="mt-[1rem]">
@@ -13,22 +15,53 @@
       <div class="text-primary font-bold">{{ item.label }}</div>
     </ng-template>
     <ng-template #item let-item>
-      <a pRipple class="flex items-center p-menu-item-link">
+      @if (item.routerLink) {
+      <a
+        pRipple
+        class="flex items-center p-menu-item-link"
+        [routerLink]="item.routerLink"
+      >
         <span class="ml-2">{{ item.label }}</span>
       </a>
+      } @else if (item.url) {
+      <a
+        pRipple
+        class="flex items-center p-menu-item-link"
+        [href]="item.url"
+        target="_blank"
+      >
+        <span class="ml-2">{{ item.label }}</span>
+      </a>
+      }
     </ng-template>
   </p-menu>
 
   <div class="h-full flex items-end justify-around">
-    @for (icon of icons; track $index) { @if (icon.command) {
-    <p-button
-      [icon]="icon.icon"
-      severity="secondary"
-      variant="outlined"
-      (onClick)="icon.command()"
-    />
-    } @else {
-    <p-button [icon]="icon.icon" severity="secondary" variant="outlined" />
+    @for (icon of icons; track $index) { @if (!icon.routerLink) {
+    <a
+      [attr.href]="icon.link ? icon.link : null"
+      [attr.target]="icon.link ? '_blank' : null"
+    >
+      <p-button
+        [icon]="icon.icon"
+        severity="secondary"
+        variant="outlined"
+        (onClick)="icon.command?.() ?? null"
+        [pTooltip]="icon.tooltip"
+        tooltipPosition="top"
+      />
+    </a>
+    } @else if (icon.routerLink){
+    <a [routerLink]="icon.routerLink">
+      <p-button
+        [icon]="icon.icon"
+        severity="secondary"
+        variant="outlined"
+        (onClick)="icon.command?.() ?? null"
+        [pTooltip]="icon.tooltip"
+        tooltipPosition="top"
+      />
+    </a>
     } }
   </div>
 </div>

@@ -1,1 +1,43 @@
-<p>downloads works!</p>
+<div class="flex flex-col gap-[1rem] mt-[1rem]">
+  <div class="flex items-center">
+    <span class="text-2xl font-bold">DDNet 19.0</span>
+    <p-tag value="latest" class="ml-[0.5rem]" />
+  </div>
+
+  <div class="card flex items-center gap-2 flex-wrap">
+    <div class="text-lg">Download:</div>
+    @for (item of downloads; track $index) {
+    <a [href]="item.url" target="_blank">
+      <p-tag [value]="item.label" severity="secondary" />
+    </a>
+    }
+  </div>
+  <div class="flex flex-row gap-[1.5rem] h-[400px]">
+    <p-panel header="Changelog" class="basis-2/4">
+      <p-scrollpanel [style]="{ height: '400px' }">
+        <div class="flex flex-col gap-[0.5rem]">
+          @for (item of changes; track $index) {
+          <div class="flex flex-row items-center gap-[0.5rem]">
+            <p-tag [value]="item.tag" />
+            <div>{{ item.changes }}</div>
+            @for (author of item.authors; track $index) {
+            <p-tag [value]="author" severity="secondary" />
+            }
+          </div>
+          }
+        </div>
+      </p-scrollpanel>
+    </p-panel>
+    <p-panel header="Other Downloads" class="basis-2/4">
+      <div class="flex flex-col gap-[0.5rem] h-[400px]">
+        @for (item of secondaryDownloads; track $index) {
+        <div class="flex flex-row items-center gap-[0.5rem]">
+          <a [href]="item.url" target="_blank">
+            <p-tag [value]="item.label" severity="secondary" />
+          </a>
+        </div>
+        }
+      </div>
+    </p-panel>
+  </div>
+</div>

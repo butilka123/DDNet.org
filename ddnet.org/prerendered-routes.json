@@ -1,0 +1,13 @@
+{
+  "routes": {
+    "/": {},
+    "/donations": {},
+    "/downloads": {},
+    "/ranks": {},
+    "/releases": {},
+    "/skins": {},
+    "/staff": {},
+    "/status": {},
+    "/tournaments": {}
+  }
+}

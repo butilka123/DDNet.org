@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/',
+  basePath: '/DDNet.org',
   supportedLocales: {
   "en-US": ""
 },

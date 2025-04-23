@@ -1,0 +1,13 @@
+{
+  "routes": {
+    "/DDNet.org": {},
+    "/DDNet.org/donations": {},
+    "/DDNet.org/downloads": {},
+    "/DDNet.org/ranks": {},
+    "/DDNet.org/releases": {},
+    "/DDNet.org/skins": {},
+    "/DDNet.org/staff": {},
+    "/DDNet.org/status": {},
+    "/DDNet.org/tournaments": {}
+  }
+}

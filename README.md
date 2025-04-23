@@ -47,4 +47,4 @@ Libary for quick css presets inside html file. <https://tailwindcss.com/>
 
 ### PrimeNG
 
-Component Libary with a lof of predefined stuff. Implement adjust, and use it.
+Component Libary with a lof of predefined stuff. Implement adjust, and use it. <https://primeng.org/>
